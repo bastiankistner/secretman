@@ -18,12 +18,12 @@ export async function getCurrentBranch() {
 	return git.currentBranch({ fs, dir: getGitRoot(), fullname: false });
 }
 
-export function getCurrentBranchName(p = process.cwd()): string | null {
+export function getCurrentBranchName(p = process.cwd()): string | undefined {
 	const gitHeadPath = `${p}/.git/HEAD`;
 
 	return fs.existsSync(p)
 		? fs.existsSync(gitHeadPath)
 			? fs.readFileSync(gitHeadPath, 'utf-8').trim().split('/')[2]
 			: getCurrentBranchName(path.resolve(p, '..'))
-		: null;
+		: undefined;
 }

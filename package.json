@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "secretman": "./bin/main"
+    "secretman": "./bin/secretman"
   },
   "scripts": {
     "test": "jest --forceExit --coverage --verbose",

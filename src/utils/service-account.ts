@@ -2,6 +2,8 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
+import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
+
 export interface GoogleApplicationCredentials {
 	type: string;
 	project_id: string;
@@ -68,3 +70,12 @@ export function getGoogleApplicationCredentialsAdvanced(envOrPath: string) {
 
 	return parsedServiceAccount;
 }
+
+export const getSecretManager = ({ project_id, client_email, private_key }: GoogleApplicationCredentials) =>
+	new SecretManagerServiceClient({
+		projectId: project_id,
+		credentials: {
+			client_email,
+			private_key,
+		},
+	});

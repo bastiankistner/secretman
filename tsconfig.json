@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.package.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
@@ -29,5 +28,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es6"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "secrets.ts"]
 }

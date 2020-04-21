@@ -1,4 +1,4 @@
-import { SecretManagerServiceClient } from '@google-cloud/secret-manager/build/src/v1beta1';
+import { SecretManagerServiceClient } from '@google-cloud/secret-manager/build/src/v1';
 
 type NameOptions = {
 	name: string;
@@ -18,9 +18,7 @@ type AddVersionOptions = GetOptions &
 	};
 
 function getFullName(options: NameOptions) {
-	return `projects/${options.projectId}/secrets/${options.name}${
-		!options.version ? '' : `/versions/${options.version}`
-	}`;
+	return `projects/${options.projectId}/secrets/${options.name}${!options.version ? '' : `/versions/${options.version}`}`;
 }
 
 export async function getSecret(options: GetOptions) {
